@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Exercises
 {
@@ -8,6 +9,9 @@ namespace Exercises
         {
             Console.WriteLine(AddAndMultiply(5, 4, 3));
             Console.WriteLine(CelsiusToFar(-30));
+            Console.WriteLine(convertToSec(5));
+            Console.WriteLine(Addition(5));
+            Console.WriteLine(LessThanOrEqualToZero(0));
         }
 
         //Add and multiply exercise
@@ -28,6 +32,30 @@ namespace Exercises
             else
             {
                 return "Temperature does not exist";
+            }
+        }
+
+        //Convert minnutes to seconds
+        public static int convertToSec(int minutes)
+        {
+            return minutes * 60;
+        }
+
+        //Add +1 to number
+        public static int Addition(int num)
+        {
+            return num + 1;
+        }
+
+        public static bool LessThanOrEqualToZero(double a)
+        {
+            if (a <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
