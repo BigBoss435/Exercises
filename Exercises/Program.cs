@@ -32,6 +32,14 @@ namespace Exercises
             {
                 Console.Write(array2[i] + " ");
             }
+            Console.WriteLine();
+            Console.WriteLine(Sum(2, 3));
+            Console.WriteLine(ElementaryOperation(23, 4));
+            Console.WriteLine(isResultTheSame(3 * 3, 10 - 1));
+            Console.WriteLine(ModuloOperations(8, 5, 2));
+            Console.WriteLine(CubeOf(-5.5));
+            Console.WriteLine(SwapTwoNumbers(5, 15));
+            Console.WriteLine(AbsoluteValue(-50));
         }
 
         //Add and multiply exercise
@@ -132,6 +140,76 @@ namespace Exercises
         public static int[] SortNumsAscending(int[] arr)
         {
             return arr.OrderBy((a) => a).ToArray();
+        }
+
+        //Sum of 2 numbers
+        public static int Sum(int a, int b)
+        {
+            return a + b;
+        }
+
+        //Elementary operation
+        public static String ElementaryOperation(int a, int b)
+        {
+            int addition = a + b;
+            int subtraction = a - b;
+            int multiplication = a * b;
+            double division;
+
+            if(b != 0)
+            {
+                division = a / (double)b;
+            }
+            else
+            {
+                division = 0;
+            }
+
+            return String.Format($"a + b = {addition}, a - b = {subtraction}, a * b = {multiplication}, a / b = {division}");
+        }
+
+        //Check wether the result is the same
+        public static bool isResultTheSame(double a, double b)
+        {
+            return a == b;
+        }
+
+        public static int ModuloOperations(int a, int b, int c)
+        {
+            return (a % b) % c;
+        }
+
+        //Cube calculation
+        public static double CubeOf(double a)
+        {
+            return Math.Pow(a, 3);
+        }
+
+        //Swap two numbers
+        public static string SwapTwoNumbers(int a, int b)
+        {
+            String before = $"Before: a = {a}, b = {b} ";
+
+            int c = a;
+            a = b;
+            b = c;
+
+            String after = $"After: a = {a}, b = {b} ";
+
+            return before + after;
+        }
+
+        //Absolute value
+        public static int AbsoluteValue(int a)
+        {
+            if(a >= 0)
+            {
+                return a;
+            }
+            else
+            {
+                return a * -1;
+            }
         }
     }
 }
