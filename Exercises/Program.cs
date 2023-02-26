@@ -53,6 +53,18 @@ namespace Exercises
             Console.WriteLine(CountClaps("ClaClaClaClap"));
             Console.WriteLine(NSidedShape(5));
             Console.WriteLine(DivisibleBy2Or3(6, 11));
+
+            //Find numbers which added up equate to target
+            int[] arr = { 1, 2, 3, 9 };
+            int[] arr1;
+            int target = 12;
+            arr1 = TwoSum(arr, target);
+            Console.WriteLine($"Numbers that added up equal target of {target} ");
+            for(int i = 0; i < arr1.Length; i++)
+            {
+                Console.Write(arr1[i] + " ");
+            }
+            Console.WriteLine();
         }
 
         //Add and multiply exercise
@@ -306,6 +318,22 @@ namespace Exercises
             {
                 return a + b;
             }
+        }
+
+        //Find two numbers indexes from array that give desired result
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = i + 1; j < nums.Length; j++)
+                {
+                    if (nums[j] == target - nums[i])
+                    {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return null;
         }
     }
 }
