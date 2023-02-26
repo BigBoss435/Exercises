@@ -13,6 +13,8 @@ namespace Exercises
             //Declaring arrays
             int[] array1 = new int[] { 1, 2, 10, 50, 5 };
             int[] array2;
+            double[] array3 = new double[] { 0.5, 0.6, 5, 7, 9 };
+            double[] array4;
 
             //Other excercises
             Console.WriteLine(AddAndMultiply(5, 4, 3));
@@ -40,6 +42,14 @@ namespace Exercises
             Console.WriteLine(CubeOf(-5.5));
             Console.WriteLine(SwapTwoNumbers(5, 15));
             Console.WriteLine(AbsoluteValue(-50));
+            Console.WriteLine(CircuitPower(50, 5) + " W");
+            array4 = FindMinMax(array3);
+            Console.Write("Min Max: ");
+            for (int i = 0; i < array4.Length; i++)
+            {
+                Console.Write(array4[i] + " ");
+            }
+            Console.WriteLine();
         }
 
         //Add and multiply exercise
@@ -210,6 +220,21 @@ namespace Exercises
             {
                 return a * -1;
             }
+        }
+        
+        //Circuit power
+        public static int CircuitPower(int voltage, int current)
+        {
+            return voltage * current;
+        }
+
+        //Find min max numbers
+        public static double[] FindMinMax(double[] values)
+        {
+            double maxValue = values.Max();
+            double minValue = values.Min();
+            double[] arr = { minValue, maxValue };
+            return arr;
         }
     }
 }
