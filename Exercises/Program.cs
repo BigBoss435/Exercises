@@ -50,6 +50,9 @@ namespace Exercises
                 Console.Write(array4[i] + " ");
             }
             Console.WriteLine();
+            Console.WriteLine(CountClaps("ClaClaClaClap"));
+            Console.WriteLine(NSidedShape(5));
+            Console.WriteLine(DivisibleBy2Or3(6, 11));
         }
 
         //Add and multiply exercise
@@ -235,6 +238,74 @@ namespace Exercises
             double minValue = values.Min();
             double[] arr = { minValue, maxValue };
             return arr;
+        }
+
+        //Count Claps(words that start with C)
+        public static int CountClaps(string txt)
+        {
+            char[] arr = txt.ToCharArray();
+            int count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 'C')
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        //Return name of polygon based on number of sides
+        public static string NSidedShape(int n)
+        {
+            String nameOfPolygon = "";
+            switch (n)
+            {
+                case 1:
+                    nameOfPolygon = "circle";
+                    break;
+                case 2:
+                    nameOfPolygon = "semi-circle";
+                    break;
+                case 3:
+                    nameOfPolygon = "triangle";
+                    break;
+                case 4:
+                    nameOfPolygon = "square";
+                    break;
+                case 5:
+                    nameOfPolygon = "pentagon";
+                    break;
+                case 6:
+                    nameOfPolygon = "hexagon";
+                    break;
+                case 7:
+                    nameOfPolygon = "heptagon";
+                    break;
+                case 8:
+                    nameOfPolygon = "octagon";
+                    break;
+                case 9:
+                    nameOfPolygon = "nonagon";
+                    break;
+                case 10:
+                    nameOfPolygon = "decagon";
+                    break;
+            }
+            return nameOfPolygon;
+        }
+
+        //Divisible by 2 or 3
+        public static int DivisibleBy2Or3(int a, int b)
+        {
+            if(a % 2 == 0 && b % 2 == 0 && a % 3 == 0 && b % 3 == 0)
+            {
+                return a * b;
+            }
+            else
+            {
+                return a + b;
+            }
         }
     }
 }
