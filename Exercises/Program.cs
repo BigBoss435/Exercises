@@ -65,6 +65,12 @@ namespace Exercises
                 Console.Write(arr1[i] + " ");
             }
             Console.WriteLine();
+
+            Console.WriteLine(IfConsistsOfUppercaseLetters("drY"));
+            Console.WriteLine(IfGreaterThanThirdOne(new int[] { 2, 8, 12 }));
+            Console.WriteLine(IfNumberIsEven(51));
+            Console.WriteLine(IfSortedAscending(new int[] { 1, 4, 5 }));
+            Console.WriteLine(IsLonelyIsland("DCA"));
         }
 
         //Add and multiply exercise
@@ -334,6 +340,40 @@ namespace Exercises
                 }
             }
             return null;
+        }
+
+        //Check if string consists of uppercase letters using ascii table
+        public static bool IfConsistsOfUppercaseLetters(string str)
+        {
+            return (str[0] >= 65 && str[1] >= 65 && str[2] >= 65) && (str[0] <= 90 && str[1] <= 90 && str[2] <= 90);
+        }
+
+        //Check if multiplication of first two elements is greater than third one
+        public static bool IfGreaterThanThirdOne(int[] arr)
+        {
+            if ((arr[0] * arr[1] > arr[2]) || (arr[0] + arr[1] > arr[2]))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        //Check if number is even
+        public static bool IfNumberIsEven(int x)
+        {
+            return x % 2 == 0;
+        }
+
+        //Check if array is sorted in ascensing order
+        public static bool IfSortedAscending(int[] arr)
+        {
+            return (arr[0] <= arr[1] && arr[1] <= arr[2]);
+        }
+
+        //Check wether letter has neighbour in alphabet
+        public static bool IsLonelyIsland(string str)
+        {
+            return str[0] == str[1] + 1 || str[0] == str[1] - 1 || str[2] == str[1] - 1 || str[2] == str[1] + 1; 
         }
     }
 }
