@@ -71,6 +71,9 @@ namespace Exercises
             Console.WriteLine(IfNumberIsEven(51));
             Console.WriteLine(IfSortedAscending(new int[] { 1, 4, 5 }));
             Console.WriteLine(IsLonelyIsland("DCA"));
+            Console.WriteLine(PositiveNegativeOrZero(-994.53));
+            Console.WriteLine(IfYearIsLeap(2016));
+            Console.WriteLine(IfNumberContains3(390462));
         }
 
         //Add and multiply exercise
@@ -374,6 +377,54 @@ namespace Exercises
         public static bool IsLonelyIsland(string str)
         {
             return str[0] == str[1] + 1 || str[0] == str[1] - 1 || str[2] == str[1] - 1 || str[2] == str[1] + 1; 
+        }
+
+        //Return string wether number is negative positive or zero
+        public static string PositiveNegativeOrZero(double x)
+        {
+            string str = "";
+            if(x > 0)
+            {
+                str = "positive";
+            }
+            else if (x == 0)
+            {
+                str = "zero";
+            }
+            else
+            {
+                str = "negative";
+            }
+            return str;
+        }
+
+        //Determines if the year is lead or not
+        public static bool IfYearIsLeap(int year)
+        {
+            if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            {
+                return true;
+            }
+            else 
+            { 
+                return false;
+            }
+        }
+
+        //Detects if number contains 3
+        public static bool IfNumberContains3(int number)
+        {
+            int num;
+            while(number > 0)
+            {
+                num = number % 10;
+                if(num == 3)
+                {
+                    return true;
+                }
+                number /= 10;
+            }
+            return false;
         }
     }
 }
