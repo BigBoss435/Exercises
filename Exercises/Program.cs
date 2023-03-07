@@ -71,6 +71,7 @@ namespace Exercises
             Console.WriteLine(IfNumberIsEven(51));
             Console.WriteLine(IfSortedAscending(new int[] { 1, 4, 5 }));
             Console.WriteLine(IsLonelyIsland("DCA"));
+            Console.WriteLine(FractionSum(3));
         }
 
         //Add and multiply exercise
@@ -374,6 +375,17 @@ namespace Exercises
         public static bool IsLonelyIsland(string str)
         {
             return str[0] == str[1] + 1 || str[0] == str[1] - 1 || str[2] == str[1] - 1 || str[2] == str[1] + 1; 
+        }
+
+        //Calculate fraction sum
+        public static double FractionSum(double x)
+        {
+            double sum = 0.0;
+            for (int i = 1; i <= x; i++)
+            {
+                sum = sum + (1 / (double)(i * i));
+            }
+            return sum;
         }
     }
 }
