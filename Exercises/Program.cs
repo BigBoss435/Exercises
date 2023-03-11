@@ -74,6 +74,9 @@ namespace Exercises
             Console.WriteLine(PositiveNegativeOrZero(-994.53));
             Console.WriteLine(IfYearIsLeap(2016));
             Console.WriteLine(IfNumberContains3(390462));
+            Console.WriteLine(FractionSum(3));
+            Console.WriteLine(MySqrt(9));
+            Console.WriteLine(MyPow(2.00000, 10));
         }
 
         //Add and multiply exercise
@@ -436,6 +439,45 @@ namespace Exercises
                 sum = sum + (1 / (double)(i * i));
             }
             return sum;
+        }
+
+        //Square root without using sqrt
+        public static int MySqrt(int x)
+        {
+            if (x < 2)
+            {
+                return x;
+            }
+
+            double y = x;
+            double z = (y + (x / y)) / 2;
+
+            while (Math.Abs(y - z) >= 0.00001)
+            {
+                y = z;
+                z = (y + (x / y)) / 2;
+            }
+            return (int)z;
+
+            //Another way to do this exercise
+            /*
+            double i = 0;
+            while (i * i <= x) 
+            {
+                if ((i * i) <= x && (i + 1) * (i + 1) > x)
+                {
+                    return (int)i;
+                }
+            }
+            return 0;
+            */
+        }
+
+        //Raise number to a n power
+        public static double MyPow(double x, int n)
+        {
+            double power = Math.Pow(x, n);
+            return power;
         }
     }
 }
