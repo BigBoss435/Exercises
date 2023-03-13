@@ -77,6 +77,9 @@ namespace Exercises
             Console.WriteLine(FractionSum(3));
             Console.WriteLine(MySqrt(9));
             Console.WriteLine(MyPow(2.00000, 10));
+            Console.WriteLine(num_of_digits(1305981031));
+            Console.WriteLine(TetrahedralNum(5));
+            Console.WriteLine(Generation(2, 'f'));
         }
 
         //Add and multiply exercise
@@ -479,5 +482,108 @@ namespace Exercises
             double power = Math.Pow(x, n);
             return power;
         }
+
+        //Returns the number of digits in a given integer
+        public static int num_of_digits(int x)
+        {
+            int count = 0;
+            while (x > 0)
+            {
+                x /= 10;
+                count++;
+            }
+            return count;
+        }
+
+        //Find nth tetrahedral number
+        public static int TetrahedralNum(int x)
+        {
+            int tetra = (x * (x + 1) * (x + 2)) / 6;
+            return tetra;
+        }
+
+        //Return generation
+        public static string Generation(int x, char y)
+        {
+            if (x == 0)
+            {
+                return "me!";
+            }
+            else if (x < 0)
+            {
+                switch (x)
+                {
+                    case -1:
+                        if(y == 'm')
+                        {
+                            return "father";
+                        }
+                        else if(y == 'f')
+                        {
+                            return "mother";
+                        }
+                        break;
+                    case -2:
+                        if (y == 'm')
+                        {
+                            return "grandfather";
+                        }
+                        else if (y == 'f')
+                        {
+                            return "grandmother";
+                        }
+                        break;
+                    case -3:
+                        if (y == 'm')
+                        {
+                            return "great grandfather";
+                        }
+                        else if (y == 'f')
+                        {
+                            return "great grandmother";
+                        }
+                        break;
+                }
+            }
+            else if (x > 0)
+            {
+                switch (x)
+                {
+                    case 1:
+                        if (y == 'm')
+                        {
+                            return "son";
+                        }
+                        else if (y == 'f')
+                        {
+                            return "daugther";
+                        }
+                        break;
+                    case 2:
+                        if (y == 'm')
+                        {
+                            return "grandson";
+                        }
+                        else if (y == 'f')
+                        {
+                            return "grandaughter";
+                        }
+                        break;
+                    case 3:
+                        if (y == 'm')
+                        {
+                            return "great grandson";
+                        }
+                        else if (y == 'f')
+                        {
+                            return "great grandaughter";
+                        }
+                        break;
+                }
+            }
+            return null;
+        }
+
+
     }
 }
