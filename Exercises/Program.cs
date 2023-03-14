@@ -80,6 +80,8 @@ namespace Exercises
             Console.WriteLine(num_of_digits(1305981031));
             Console.WriteLine(TetrahedralNum(5));
             Console.WriteLine(Generation(2, 'f'));
+            Console.WriteLine(AreaOfCountry("Russia", 17098242));
+            Console.WriteLine(string.Format("{0:0.00}", ConeVolume(15, 6)));
         }
 
         //Add and multiply exercise
@@ -584,6 +586,21 @@ namespace Exercises
             return null;
         }
 
+        //Get area of a given country
+        public static string AreaOfCountry(string name, int area)
+        {
+            double PercentageOfArea;
+            double AreaOfTheWorld = 148940000;
+            PercentageOfArea = (area / AreaOfTheWorld) * 100;
+            return name + " " + string.Format("{0:0.00}", PercentageOfArea) + "%" + " of the total world's landmass";
+        }
 
+        //Calculate cone volume
+        public static double ConeVolume(double x, double y)
+        {
+            double volume;
+            volume = (1.0 / 3.0) * (y * y * Math.PI * x);
+            return volume;
+        }
     }
 }
