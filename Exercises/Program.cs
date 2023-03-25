@@ -82,7 +82,7 @@ namespace Exercises
             Console.WriteLine(Generation(2, 'f'));
             Console.WriteLine(AreaOfCountry("Russia", 17098242));
             Console.WriteLine(string.Format("{0:0.00}", ConeVolume(15, 6)));
-            int[] arr2 = PlusOne(new int[] { 1, 3, 5 });
+            int[] arr2 = PlusOne(new int[] { 9, 9 });
             for (int i = 0; i < arr2.Length; i++)
             {
                 Console.Write(arr2[i] + " ");
@@ -611,6 +611,7 @@ namespace Exercises
         //Add a one to number in an array
         public static int[] PlusOne(int[] digits)
         {
+            /*
             if (digits.Length > 1)
             {
                 for (int i = digits.Length - 1; i >= 0; i--)
@@ -646,6 +647,23 @@ namespace Exercises
                 return null;
             }
             return digits;
+            */
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+
+                if (digits[i] < 9)
+                {
+                    digits[i]++;
+                    return digits;
+                }
+                else
+                    digits[i] = 0;
+            }
+
+            int[] newDigits = new int[digits.Length + 1];
+            newDigits[0] = 1;
+
+            return newDigits;
         }
     }
 }
