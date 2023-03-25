@@ -82,6 +82,11 @@ namespace Exercises
             Console.WriteLine(Generation(2, 'f'));
             Console.WriteLine(AreaOfCountry("Russia", 17098242));
             Console.WriteLine(string.Format("{0:0.00}", ConeVolume(15, 6)));
+            int[] arr2 = PlusOne(new int[] { 1, 3, 5 });
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                Console.Write(arr2[i] + " ");
+            }
         }
 
         //Add and multiply exercise
@@ -601,6 +606,46 @@ namespace Exercises
             double volume;
             volume = (1.0 / 3.0) * (y * y * Math.PI * x);
             return volume;
+        }
+
+        //Add a one to number in an array
+        public static int[] PlusOne(int[] digits)
+        {
+            if (digits.Length > 1)
+            {
+                for (int i = digits.Length - 1; i >= 0; i--)
+                {
+                    if (digits[i] == 9 && i == digits.Length - 1)
+                    {
+                        digits[i] = 0;
+                        digits[i - 1] += 1;
+                    }
+                    else if (i == digits.Length - 1)
+                    {
+                        digits[i] += 1;
+                    }
+                }
+            }
+            else if (digits.Length == 1)
+            {
+                if (digits[0] == 9)
+                {
+                    int number = 9;
+                    Array.Resize<int>(ref digits, 2);
+                    digits[0] = 1;
+                    digits[1] = 0;
+
+                }
+                else
+                {
+                    digits[0] += 1;
+                }
+            }
+            else
+            {
+                return null;
+            }
+            return digits;
         }
     }
 }
