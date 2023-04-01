@@ -87,6 +87,17 @@ namespace Exercises
             {
                 Console.Write(arr2[i] + " ");
             }
+            Console.WriteLine();
+            Console.WriteLine(AddBinary("1010", "1011"));
+
+            //Trying out parsing
+            string stringForFloat = "0.85";
+            string stringForInt = "12345";
+
+            float myFloat = float.Parse(stringForFloat);
+            int myInt = Int32.Parse(stringForInt);
+
+            Console.WriteLine("Int = {0} Float = {1}", myInt, myFloat);
         }
 
         //Add and multiply exercise
@@ -664,6 +675,28 @@ namespace Exercises
             newDigits[0] = 1;
 
             return newDigits;
+        }
+
+        //Add binary numbers
+        public static string AddBinary(string a, string b)
+        {
+            string result = "";
+
+            int s = 0;
+
+            int i = a.Length - 1;
+            int j = b.Length - 1;
+            while (i >= 0 || j >= 0 || s == 1)
+            {
+                s += ((i >= 0) ? a[i] - '0' : 0);
+                s += ((j >= 0) ? b[j] - '0' : 0);
+                result = (char)(s % 2 + '0') + result;
+
+                s /= 2;
+                i--;
+                j--;
+            }
+            return result;
         }
     }
 }
