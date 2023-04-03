@@ -98,6 +98,8 @@ namespace Exercises
             int myInt = Int32.Parse(stringForInt);
 
             Console.WriteLine("Int = {0} Float = {1}", myInt, myFloat);
+
+            Console.WriteLine(IsPowerOfTwo(16));
         }
 
         //Add and multiply exercise
@@ -697,6 +699,30 @@ namespace Exercises
                 j--;
             }
             return result;
+        }
+
+        //Is power of 2
+        public static bool IsPowerOfTwo(int n)
+        {
+            int i = 1;
+            int res;
+            while (true)
+            {
+                res = (int)Math.Pow(2, i);
+                if (n == 1)
+                {
+                    return true;
+                }
+                else if (n == res)
+                {
+                    return true;
+                }
+                else if (res > n)
+                {
+                    return false;
+                }
+                i++;
+            }
         }
     }
 }
