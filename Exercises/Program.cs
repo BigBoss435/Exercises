@@ -99,7 +99,7 @@ namespace Exercises
 
             Console.WriteLine("Int = {0} Float = {1}", myInt, myFloat);
 
-            Console.WriteLine(IsPowerOfTwo(16));
+            Console.WriteLine(IsPowerOfTwo(6));
         }
 
         //Add and multiply exercise
@@ -704,8 +704,9 @@ namespace Exercises
         //Is power of 2
         public static bool IsPowerOfTwo(int n)
         {
-            int i = 1;
+            /*int i = 1;
             int res;
+            
             while (true)
             {
                 res = (int)Math.Pow(2, i);
@@ -722,6 +723,36 @@ namespace Exercises
                     return false;
                 }
                 i++;
+            }*/
+            
+
+            //Better way is diving by two until only number 2 remains
+            int division = n;
+            while (true)
+            {
+                if (n == 1)
+                {
+                    return true;
+                }
+                else if (division % 2 != 0)
+                {
+                    return false;
+                }
+                else if (division % 2 == 0)
+                {
+                    while (division % 2 == 0)
+                    {
+                        division /= 2;
+                        if (division == 2)
+                        {
+                            return true;
+                        }
+                        else if (division < 2)
+                        {
+                            return false;
+                        }
+                    }
+                }
             }
         }
     }
