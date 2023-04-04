@@ -60,7 +60,7 @@ namespace Exercises
             int target = 12;
             arr1 = TwoSum(arr, target);
             Console.WriteLine($"Numbers that added up equal target of {target} ");
-            for(int i = 0; i < arr1.Length; i++)
+            for (int i = 0; i < arr1.Length; i++)
             {
                 Console.Write(arr1[i] + " ");
             }
@@ -100,6 +100,7 @@ namespace Exercises
             Console.WriteLine("Int = {0} Float = {1}", myInt, myFloat);
 
             Console.WriteLine(IsPowerOfTwo(6));
+            Console.WriteLine(IsPowerOfThree(7));
         }
 
         //Add and multiply exercise
@@ -166,12 +167,12 @@ namespace Exercises
         {
             return (long)Math.Pow(number, exponent);
         }
-        
+
         //Calculate factorial
         public static int Factorial(int num)
         {
             int f = 1;
-            for(int i = 1; i <= num; i++)
+            for (int i = 1; i <= num; i++)
             {
                 f *= i;
             }
@@ -216,7 +217,7 @@ namespace Exercises
             int multiplication = a * b;
             double division;
 
-            if(b != 0)
+            if (b != 0)
             {
                 division = a / (double)b;
             }
@@ -262,7 +263,7 @@ namespace Exercises
         //Absolute value
         public static int AbsoluteValue(int a)
         {
-            if(a >= 0)
+            if (a >= 0)
             {
                 return a;
             }
@@ -271,7 +272,7 @@ namespace Exercises
                 return a * -1;
             }
         }
-        
+
         //Circuit power
         public static int CircuitPower(int voltage, int current)
         {
@@ -345,7 +346,7 @@ namespace Exercises
         //Divisible by 2 or 3
         public static int DivisibleBy2Or3(int a, int b)
         {
-            if(a % 2 == 0 && b % 2 == 0 && a % 3 == 0 && b % 3 == 0)
+            if (a % 2 == 0 && b % 2 == 0 && a % 3 == 0 && b % 3 == 0)
             {
                 return a * b;
             }
@@ -402,14 +403,14 @@ namespace Exercises
         //Check wether letter has neighbour in alphabet
         public static bool IsLonelyIsland(string str)
         {
-            return str[0] == str[1] + 1 || str[0] == str[1] - 1 || str[2] == str[1] - 1 || str[2] == str[1] + 1; 
+            return str[0] == str[1] + 1 || str[0] == str[1] - 1 || str[2] == str[1] - 1 || str[2] == str[1] + 1;
         }
 
         //Return string wether number is negative positive or zero
         public static string PositiveNegativeOrZero(double x)
         {
             string str = "";
-            if(x > 0)
+            if (x > 0)
             {
                 str = "positive";
             }
@@ -427,12 +428,12 @@ namespace Exercises
         //Determines if the year is lead or not
         public static bool IfYearIsLeap(int year)
         {
-            if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
             {
                 return true;
             }
-            else 
-            { 
+            else
+            {
                 return false;
             }
         }
@@ -441,10 +442,10 @@ namespace Exercises
         public static bool IfNumberContains3(int number)
         {
             int num;
-            while(number > 0)
+            while (number > 0)
             {
                 num = number % 10;
-                if(num == 3)
+                if (num == 3)
                 {
                     return true;
                 }
@@ -534,11 +535,11 @@ namespace Exercises
                 switch (x)
                 {
                     case -1:
-                        if(y == 'm')
+                        if (y == 'm')
                         {
                             return "father";
                         }
-                        else if(y == 'f')
+                        else if (y == 'f')
                         {
                             return "mother";
                         }
@@ -724,13 +725,13 @@ namespace Exercises
                 }
                 i++;
             }*/
-            
+
 
             //Better way is diving by two until only number 2 remains
             int division = n;
             while (true)
             {
-                if (n == 1)
+                if (n == 1 || n == 2)
                 {
                     return true;
                 }
@@ -748,6 +749,38 @@ namespace Exercises
                             return true;
                         }
                         else if (division < 2)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        //Is power of 3
+        public static bool IsPowerOfThree(int n)
+        {
+            int division = n;
+            while (true)
+            {
+                if (n == 1 || n == 3)
+                {
+                    return true;
+                }
+                else if (division % 3 != 0)
+                {
+                    return false;
+                }
+                else if (division % 3 == 0)
+                {
+                    while (division % 3 == 0)
+                    {
+                        division /= 3;
+                        if (division == 3)
+                        {
+                            return true;
+                        }
+                        else if (division < 3)
                         {
                             return false;
                         }
