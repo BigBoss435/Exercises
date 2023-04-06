@@ -101,6 +101,7 @@ namespace Exercises
 
             Console.WriteLine(IsPowerOfTwo(6));
             Console.WriteLine(IsPowerOfThree(7));
+            Console.WriteLine(IsPowerOfFour(16));
         }
 
         //Add and multiply exercise
@@ -781,6 +782,38 @@ namespace Exercises
                             return true;
                         }
                         else if (division < 3)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        //Is power of 4 
+        public static bool IsPowerOfFour(int n)
+        {
+            int division = n;
+            while (true)
+            {
+                if (n == 1 || n == 4)
+                {
+                    return true;
+                }
+                else if (division % 4 != 0)
+                {
+                    return false;
+                }
+                else if (division % 4 == 0)
+                {
+                    while (division % 4 == 0)
+                    {
+                        division /= 4;
+                        if (division == 4)
+                        {
+                            return true;
+                        }
+                        else if (division < 4)
                         {
                             return false;
                         }
